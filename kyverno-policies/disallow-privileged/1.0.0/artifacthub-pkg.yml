@@ -1,0 +1,17 @@
+version: 1.0.0
+name: disallow-privileged
+displayName: Disallow Privileged Containers
+createdAt: "2026-09-28T00:00:00Z"
+description: Blocks Pods that request privileged container security context, part of the TF Drift Guard security guardrail suite.
+license: MIT
+homeURL: https://github.com/SainiOps/tf-drift-guard
+keywords:
+  - security
+  - compliance
+  - pod-security
+links:
+  - name: source
+    url: https://github.com/SainiOps/tf-drift-guard/tree/main/kyverno-policies/disallow-privileged
+maintainers:
+  - name: Tejinder Singh Saini
+    email: teji.rebelatic@gmail.com

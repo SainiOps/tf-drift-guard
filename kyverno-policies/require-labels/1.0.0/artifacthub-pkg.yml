@@ -1,0 +1,18 @@
+version: 1.0.0
+name: require-labels
+displayName: Require Owner & Environment Labels
+createdAt: "2026-09-28T00:00:00Z"
+description: Enforces that Deployments, StatefulSets and DaemonSets carry owner and environment labels for cost/ownership tracking.
+license: MIT
+homeURL: https://github.com/SainiOps/tf-drift-guard
+keywords:
+  - security
+  - compliance
+  - governance
+  - tagging
+links:
+  - name: source
+    url: https://github.com/SainiOps/tf-drift-guard/tree/main/kyverno-policies/require-labels
+maintainers:
+  - name: Tejinder Singh Saini
+    email: teji.rebelatic@gmail.com
