@@ -1,0 +1,4 @@
+requiredTags:
+  - owner
+  - environment
+validationFailureAction: Audit  # switch to "Enforce" once teams are onboarded

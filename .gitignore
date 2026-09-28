@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+tf-drift-guard-report.md

@@ -1,0 +1,17 @@
+apiVersion: v2
+name: drift-guard-policies
+description: Kyverno policy bundle enforcing the same guardrails as TF Drift Guard, inside Kubernetes/EKS.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - kyverno
+  - policy
+  - compliance
+  - security
+  - eks
+home: https://github.com/your-org/tf-drift-guard
+sources:
+  - https://github.com/your-org/tf-drift-guard
+maintainers:
+  - name: Tejinder Singh

@@ -1,0 +1,49 @@
+name: 'TF Drift Guard'
+description: 'Detects Terraform drift and AWS security/compliance violations (public S3, open security groups, unencrypted volumes, missing tags).'
+author: 'Tejinder Singh'
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+inputs:
+  aws-region:
+    description: 'AWS region to scan'
+    required: false
+    default: 'us-east-1'
+  required-tags:
+    description: 'Comma-separated list of required tag keys'
+    required: false
+    default: 'owner,environment'
+  terraform-dir:
+    description: 'Path to terraform working directory (for drift check)'
+    required: false
+    default: '.'
+  slack-webhook-url:
+    description: 'Slack incoming webhook URL for violation alerts'
+    required: false
+    default: ''
+  fail-on-violation:
+    description: 'Fail the action (exit 1) if violations are found'
+    required: false
+    default: 'true'
+
+outputs:
+  violations-count:
+    description: 'Number of violations found'
+  report-path:
+    description: 'Path to the generated markdown report'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--aws-region'
+    - ${{ inputs.aws-region }}
+    - '--required-tags'
+    - ${{ inputs.required-tags }}
+    - '--terraform-dir'
+    - ${{ inputs.terraform-dir }}
+    - '--slack-webhook-url'
+    - ${{ inputs.slack-webhook-url }}
+    - '--fail-on-violation'
+    - ${{ inputs.fail-on-violation }}

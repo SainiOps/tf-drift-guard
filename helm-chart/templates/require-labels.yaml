@@ -1,0 +1,24 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-owner-environment-labels
+spec:
+  validationFailureAction: {{ .Values.validationFailureAction }}
+  background: true
+  rules:
+    - name: require-labels
+      match:
+        any:
+          - resources:
+              kinds:
+                - Deployment
+                - StatefulSet
+                - DaemonSet
+      validate:
+        message: 'Required labels missing: {{ join ", " .Values.requiredTags }}'
+        pattern:
+          metadata:
+            labels:
+{{- range .Values.requiredTags }}
+              {{ . }}: "?*"
+{{- end }}
